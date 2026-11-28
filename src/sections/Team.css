@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
-
 .team-scroll {
   position: relative;
   margin-top: 120px;
@@ -43,7 +42,10 @@
   line-height: 15px;
   text-transform: uppercase;
 }
-.team__topline span:last-child { text-align: right; }
+
+.team__topline span:last-child {
+  text-align: right;
+}
 
 .team__viewport {
   position: absolute;
@@ -51,12 +53,14 @@
   overflow: hidden;
   touch-action: pan-y;
 }
+
 .team__track {
   display: flex;
   width: 100%;
   height: 100%;
   will-change: transform;
 }
+
 .team__slide {
   position: relative;
   flex: 0 0 100%;
@@ -65,6 +69,7 @@
   height: 100%;
   user-select: none;
 }
+
 .team__photo {
   position: absolute;
   left: var(--team-group-left);
@@ -74,6 +79,7 @@
   overflow: hidden;
   pointer-events: none;
 }
+
 .team__photo img {
   display: block;
   width: 100%;
@@ -81,6 +87,7 @@
   object-fit: cover;
   object-position: center;
 }
+
 .team__details {
   position: absolute;
   left: var(--team-text-left);
@@ -88,19 +95,23 @@
   width: var(--team-copy-width);
   pointer-events: none;
 }
+
 .team__details h2 {
   margin: 0;
   font: 500 54px/1 "Inter", sans-serif;
   letter-spacing: -1px;
 }
+
 .team__role {
   margin: 22px 0 0;
   font: 400 14px/15px "Inter", sans-serif;
 }
+
 .team__description {
   margin: 50px 0 0;
   font: 400 20px/1.3 "Inter", sans-serif;
 }
+
 .team__quotation {
   position: absolute;
   left: var(--team-text-left);
@@ -110,15 +121,18 @@
   color: #EAF4F0;
   pointer-events: none;
 }
+
 .team__quotation blockquote {
   margin: 0;
   font: 400 18px/1.22 "Prata", Georgia, serif;
 }
+
 .team__quotation figcaption {
   margin-top: 10px;
   text-align: right;
   font: 400 18px/1.3 "Prata", Georgia, serif;
 }
+
 .team__controls {
   position: absolute;
   z-index: 3;
@@ -130,6 +144,7 @@
   align-items: center;
   color: #A2E1CD;
 }
+
 .team__pagination {
   display: flex;
   align-items: center;
@@ -138,12 +153,14 @@
   font: 400 24px/1.1 "Inter", sans-serif;
   font-variant-numeric: tabular-nums;
 }
+
 .team__progress {
   display: flex;
   width: 259px;
   gap: 2px;
   align-items: center;
 }
+
 .team__progress button {
   flex: 1;
   height: 16px;
@@ -153,6 +170,7 @@
   position: relative;
   cursor: pointer;
 }
+
 .team__progress button::after {
   content: "";
   position: absolute;
@@ -164,49 +182,154 @@
   opacity: .27;
   transition: opacity 350ms ease;
 }
-.team__progress button.is-current::after { opacity: 1; }
+
+.team__progress button.is-current::after {
+  opacity: 1;
+}
 
 @media (min-width: 1101px) and (max-width: 1550px) {
-  .team__topline { top: 35px; }
-  .team__details { top: 21.16%; }
-  .team__quotation { top: 62.2%; }
-  .team__details h2 { font-size: clamp(38px, 2.8vw, 54px); }
-  .team__description { font-size: 20px; font-weight: 400; margin-top: 34px; }
-  .team__quotation blockquote { font-size: 18px; }
-  .team__controls { bottom: 8%; }
+  .team__topline {
+    top: 35px;
+  }
+  .team__details {
+    top: 21.16%;
+  }
+  .team__quotation {
+    top: 62.2%;
+  }
+  .team__details h2 {
+    font-size: clamp(38px, 2.8vw, 54px);
+  }
+  .team__description {
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 34px;
+  }
+  .team__quotation blockquote {
+    font-size: 18px;
+  }
+  .team__controls {
+    bottom: 8%;
+  }
 }
+
 @media (max-width: 1100px) {
-  .team { --team-photo-width: clamp(220px, 34vw, 340px); --team-copy-width: clamp(280px, 38vw, 420px); }
-  .team__topline { top: 30px; left: 25px; right: 25px; font-size: 12px; }
-  .team__details { top: 140px; }
-  .team__details h2 { font-size: 42px; }
-  .team__role { margin-top: 12px; font-size: 12px; }
-  .team__description { margin-top: 26px; font-size: 20px; font-weight: 400; }
-  .team__quotation { top: 515px; }
-  .team__quotation blockquote { font-size: 18px; }
-  .team__quotation figcaption { font-size: 18px; }
-  .team__controls { left: 25px; right: 25px; bottom: 45px; }
-  .team__pagination { width: 320px; font-size: 19px; }
-  .team__progress { width: 190px; }
+  .team {
+    --team-photo-width: clamp(220px, 34vw, 340px);
+    --team-copy-width: clamp(280px, 38vw, 420px);
+  }
+  .team__topline {
+    top: 30px;
+    left: 25px;
+    right: 25px;
+    font-size: 12px;
+  }
+  .team__details {
+    top: 140px;
+  }
+  .team__details h2 {
+    font-size: 42px;
+  }
+  .team__role {
+    margin-top: 12px;
+    font-size: 12px;
+  }
+  .team__description {
+    margin-top: 26px;
+    font-size: 20px;
+    font-weight: 400;
+  }
+  .team__quotation {
+    top: 515px;
+  }
+  .team__quotation blockquote {
+    font-size: 18px;
+  }
+  .team__quotation figcaption {
+    font-size: 18px;
+  }
+  .team__controls {
+    left: 25px;
+    right: 25px;
+    bottom: 45px;
+  }
+  .team__pagination {
+    width: 320px;
+    font-size: 19px;
+  }
+  .team__progress {
+    width: 190px;
+  }
 }
+
 @media (max-width: 700px) {
   .team {
     background: linear-gradient(to bottom, var(--team-light) 0 57%, var(--team-dark) 57% 100%);
   }
-  .team__topline { top: 24px; left: 20px; right: 20px; font-size: 10px; line-height: 1.4; }
-  .team__topline span:last-child { max-width: 48%; }
-  .team__photo { left: 50%; top: 18%; width: min(382px, 55vw); height: auto; aspect-ratio: 382 / 546; transform: translateX(-50%); }
-  .team__details { left: 65%; top: 115px; width: 32%; }
-  .team__details h2 { font-size: clamp(22px, 6vw, 34px); letter-spacing: -.5px; overflow-wrap: anywhere; }
-  .team__role { font-size: 10px; line-height: 1.45; }
-  .team__description { font-size: clamp(11px, 2.8vw, 15px); line-height: 1.35; margin-top: 18px; }
-  .team__quotation { left: 8%; top: 535px; width: 84%; }
-  .team__quotation blockquote { font-size: 19px; }
-  .team__quotation figcaption { font-size: 13px; }
-  .team__controls { left: 20px; right: 20px; bottom: 35px; }
-  .team__pagination { width: min(48%, 225px); font-size: 16px; }
-  .team__progress { width: 53%; }
+  .team__topline {
+    top: 24px;
+    left: 20px;
+    right: 20px;
+    font-size: 10px;
+    line-height: 1.4;
+  }
+  .team__topline span:last-child {
+    max-width: 48%;
+  }
+  .team__photo {
+    left: 50%;
+    top: 18%;
+    width: min(382px, 55vw);
+    height: auto;
+    aspect-ratio: 382 / 546;
+    transform: translateX(-50%);
+  }
+  .team__details {
+    left: 65%;
+    top: 115px;
+    width: 32%;
+  }
+  .team__details h2 {
+    font-size: clamp(22px, 6vw, 34px);
+    letter-spacing: -.5px;
+    overflow-wrap: anywhere;
+  }
+  .team__role {
+    font-size: 10px;
+    line-height: 1.45;
+  }
+  .team__description {
+    font-size: clamp(11px, 2.8vw, 15px);
+    line-height: 1.35;
+    margin-top: 18px;
+  }
+  .team__quotation {
+    left: 8%;
+    top: 535px;
+    width: 84%;
+  }
+  .team__quotation blockquote {
+    font-size: 19px;
+  }
+  .team__quotation figcaption {
+    font-size: 13px;
+  }
+  .team__controls {
+    left: 20px;
+    right: 20px;
+    bottom: 35px;
+  }
+  .team__pagination {
+    width: min(48%, 225px);
+    font-size: 16px;
+  }
+  .team__progress {
+    width: 53%;
+  }
 }
+
 @media (prefers-reduced-motion: reduce) {
-  .team__progress button::after { transition-duration: 0ms; }
+  .team__progress button::after {
+    transition-duration: 0ms;
+  }
 }

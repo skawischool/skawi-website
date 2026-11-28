@@ -1,32 +1,149 @@
 /* Figma Certificates-Section 135:218. Dimensions follow the supplied frame sizes. */
 .awards-scroll {
-  position: relative; height: 540svh; margin-top: 120px;
-  background: #F6FFFC; color: #023536; font-family: Inter, sans-serif;
+  position: relative;
+  height: 540svh;
+  margin-top: 120px;
+  background: #F6FFFC;
+  color: #023536;
+  font-family: Inter, sans-serif;
 }
-.awards { position: sticky; top: 0; height: 100svh; overflow: hidden; isolation: isolate; }
+
+.awards {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
 .awards__topline {
-  position: absolute; z-index: 200; top: 40px; left: 40px; right: 40px;
-  display: flex; align-items: flex-start; justify-content: space-between; gap: 24px;
-  font-size: 14px; line-height: 1.1; font-weight: 400; letter-spacing: .7px;
+  position: absolute;
+  z-index: 200;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 14px;
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: .7px;
 }
-.awards__heading { margin: 0; font: inherit; text-transform: uppercase; white-space: nowrap; }
-.awards__quote { display: flex; align-items: center; gap: 8px; text-transform: uppercase; }
-.awards__signature { display: flex; align-items: center; gap: 8px; font-size: 12px; font-style: italic; letter-spacing: .6px; text-transform: none; white-space: nowrap; }
-.awards__signature i { width: 16px; height: .8px; background: #023536; flex: none; }
-.awards__viewport { position: absolute; inset: 0; overflow: hidden; perspective: 1200px; perspective-origin: 50% 50%; }
-.awards__item { position: absolute; top: 0; left: 0; margin: 0; visibility: hidden; overflow: hidden; will-change: transform; backface-visibility: hidden; }
-.awards__item img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.awards__heading {
+  margin: 0;
+  font: inherit;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.awards__quote {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+}
+
+.awards__signature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-style: italic;
+  letter-spacing: .6px;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+.awards__signature i {
+  width: 16px;
+  height: .8px;
+  background: #023536;
+  flex: none;
+}
+
+.awards__viewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+}
+
+.awards__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  visibility: hidden;
+  overflow: hidden;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.awards__item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 @media (max-width: 800px) {
-  .awards-scroll { margin-top: 80px; height: 540svh; }
-  .awards__topline { top: 40px; left: 20px; right: 20px; font-size: 11px; gap: 12px; }
-  .awards__quote { flex-direction: column; align-items: flex-end; text-align: right; gap: 8px; }
-  .awards__signature { font-size: 10px; }
+  .awards-scroll {
+    margin-top: 80px;
+    height: 540svh;
+  }
+  .awards__topline {
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    font-size: 11px;
+    gap: 12px;
+  }
+  .awards__quote {
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    gap: 8px;
+  }
+  .awards__signature {
+    font-size: 10px;
+  }
 }
+
 @media (prefers-reduced-motion: reduce) {
-  .awards-scroll { height: auto; }
-  .awards { position: relative; height: auto; padding: 40px 0; }
-  .awards__topline { position: relative; inset: auto; margin: 0 40px 32px; }
-  .awards__viewport { position: relative; display: flex; gap: 24px; overflow-x: auto; padding: 0 40px; }
-  .awards__item { position: relative; flex: 0 0 auto; height: min(418px,55vh); visibility: visible; will-change: auto; }
-  .awards__item img { width: auto; height: 100%; object-fit: contain; }
+  .awards-scroll {
+    height: auto;
+  }
+  .awards {
+    position: relative;
+    height: auto;
+    padding: 40px 0;
+  }
+  .awards__topline {
+    position: relative;
+    inset: auto;
+    margin: 0 40px 32px;
+  }
+  .awards__viewport {
+    position: relative;
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    padding: 0 40px;
+  }
+  .awards__item {
+    position: relative;
+    flex: 0 0 auto;
+    height: min(418px,55vh);
+    visibility: visible;
+    will-change: auto;
+  }
+  .awards__item img {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+  }
 }

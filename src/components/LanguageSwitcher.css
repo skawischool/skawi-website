@@ -1,6 +1,27 @@
-.language-switcher { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
-.language-switcher__item { display: inline-flex; gap: 10px; align-items: center; }
-.language-switcher__divider { display: block; flex: 0 0 2px; width: 2px; height: 28px; background: #023536; opacity: 1; transform: scaleX(0.75); transform-origin: center; }
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.language-switcher__item {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.language-switcher__divider {
+  display: block;
+  flex: 0 0 2px;
+  width: 2px;
+  height: 28px;
+  background: #023536;
+  opacity: 1;
+  transform: scaleX(0.75);
+  transform-origin: center;
+}
+
 .language-switcher__button {
   display: inline-block;
   padding: 2px 0;
@@ -12,15 +33,36 @@
   cursor: pointer;
   transition: transform .25s ease, opacity .25s ease;
 }
-.language-switcher__button:hover,
-.language-switcher__button:focus-visible {
+
+.language-switcher__button:hover, .language-switcher__button:focus-visible {
   transform: translateY(-3px);
   opacity: .58;
 }
-.language-switcher__button.is-active { font-weight: 700; }
-@media (prefers-reduced-motion: reduce) {
-  .language-switcher__button { transition: none; }
-  .language-switcher__button:hover,
-  .language-switcher__button:focus-visible { transform: none; }
+
+.language-switcher__button.is-active {
+  font-weight: 700;
 }
-@media (max-width: 767px) { .language-switcher { gap: 6px; }.language-switcher__item { gap: 6px; }.language-switcher__button { font-size: 14px; }.language-switcher__divider { height: 19px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .language-switcher__button {
+    transition: none;
+  }
+  .language-switcher__button:hover,   .language-switcher__button:focus-visible {
+    transform: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .language-switcher {
+    gap: 6px;
+  }
+  .language-switcher__item {
+    gap: 6px;
+  }
+  .language-switcher__button {
+    font-size: 14px;
+  }
+  .language-switcher__divider {
+    height: 19px;
+  }
+}

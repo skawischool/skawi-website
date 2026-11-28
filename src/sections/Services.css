@@ -45,6 +45,7 @@
   text-transform: uppercase;
   white-space: nowrap;
 }
+
 .services__quote span {
   margin-left: 8px;
   color: #a2e1cd;
@@ -66,8 +67,16 @@
   gap: 20px;
   z-index: 7;
 }
-.services__nav--left { left: 40px; width: 311px; }
-.services__nav--right { right: 40px; width: 295px; }
+
+.services__nav--left {
+  left: 40px;
+  width: 311px;
+}
+
+.services__nav--right {
+  right: 40px;
+  width: 295px;
+}
 
 .services__nav-item {
   appearance: none;
@@ -90,12 +99,23 @@
   white-space: nowrap;
   transition: opacity .8s cubic-bezier(.22, 1, .36, 1), transform .8s cubic-bezier(.22, 1, .36, 1);
 }
-.services__nav--right .services__nav-item { justify-content: flex-end; text-align: right; }
-.services__nav--left .services__nav-item.is-active { transform: translateX(9px); }
-.services__nav--right .services__nav-item.is-active { transform: translateX(-9px); }
-.services__nav-item:hover,
-.services__nav-item:focus-visible,
-.services__nav-item.is-active { opacity: 1; }
+
+.services__nav--right .services__nav-item {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.services__nav--left .services__nav-item.is-active {
+  transform: translateX(9px);
+}
+
+.services__nav--right .services__nav-item.is-active {
+  transform: translateX(-9px);
+}
+
+.services__nav-item:hover, .services__nav-item:focus-visible, .services__nav-item.is-active {
+  opacity: 1;
+}
 
 .services__indicator {
   flex: 0 0 5px;
@@ -107,7 +127,11 @@
   transform: scale(0);
   transition: opacity .45s ease, transform .45s ease;
 }
-.services__nav-item.is-active .services__indicator { opacity: 1; transform: scale(1); }
+
+.services__nav-item.is-active .services__indicator {
+  opacity: 1;
+  transform: scale(1);
+}
 
 /* Each slide is a complete full-screen state, not a bordered inset card. */
 .services__deck {
@@ -120,6 +144,7 @@
   isolation: isolate;
   pointer-events: none;
 }
+
 .services__card {
   position: absolute;
   inset: 0;
@@ -132,6 +157,7 @@
   will-change: opacity;
   backface-visibility: hidden;
 }
+
 .services__card-inner {
   position: absolute;
   top: calc(50% - 50px);
@@ -142,6 +168,7 @@
   flex-direction: column;
   align-items: center;
 }
+
 .services__title {
   width: 100%;
   margin: 0;
@@ -155,6 +182,7 @@
   letter-spacing: .64px;
   white-space: nowrap;
 }
+
 .services__description {
   margin: 24px 0 0;
   color: #eaf4f0;
@@ -165,6 +193,7 @@
   font-weight: 400;
   line-height: 110%;
 }
+
 .services__benefits {
   display: flex;
   flex-direction: column;
@@ -176,6 +205,7 @@
   width: 476px;
   max-width: 100%;
 }
+
 .services__benefits li {
   position: relative;
   padding-left: 18px;
@@ -187,6 +217,7 @@
   line-height: 110%;
   white-space: nowrap;
 }
+
 .services__benefits li::before {
   content: '';
   position: absolute;
@@ -212,13 +243,19 @@
   font: 400 24px/1.1 "Inter", sans-serif;
   font-variant-numeric: tabular-nums;
 }
-.services__page-number { font-size: inherit; line-height: inherit; }
+
+.services__page-number {
+  font-size: inherit;
+  line-height: inherit;
+}
+
 .services__progress {
   display: flex;
   width: 259px;
   gap: 2px;
   align-items: center;
 }
+
 .services__progress button {
   flex: 1;
   height: 16px;
@@ -228,6 +265,7 @@
   position: relative;
   cursor: pointer;
 }
+
 .services__progress button::after {
   content: "";
   position: absolute;
@@ -239,64 +277,211 @@
   opacity: .27;
   transition: opacity 350ms ease;
 }
-.services__progress button.is-current::after { opacity: 1; }
+
+.services__progress button.is-current::after {
+  opacity: 1;
+}
 
 @media (min-width: 1101px) and (max-width: 1550px) {
   /* Keep text pinned to the viewport, rather than fractional sticky scroll. */
-  .services { position: absolute; top: 0; left: 0; }
-  .services[data-pin="active"] { position: fixed; top: 0; left: 0; }
-  .services[data-pin="after"] { top: auto; bottom: 0; }
-  .services__card { will-change: auto; backface-visibility: visible; }
+  .services {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .services[data-pin="active"] {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .services[data-pin="after"] {
+    top: auto;
+    bottom: 0;
+  }
+  .services__card {
+    will-change: auto;
+    backface-visibility: visible;
+  }
   /* Keep the pinned stage fully within a 1440px desktop viewport. */
-  .services-scroll { height: calc(100svh + 270vh); }
-  .services { height: 100svh; }
-  .services__pagination { bottom: 8%; }
+  .services-scroll {
+    height: calc(100svh + 270vh);
+  }
+  .services {
+    height: 100svh;
+  }
+  .services__pagination {
+    bottom: 8%;
+  }
   /* Desktop 1440: keep side navigation outside the central text area. */
-  .services__deck { width: calc(100% - 540px); max-width: 1010px; }
-  .services__card-inner { width: 100%; }
-  .services__title { font-size: clamp(46px, 3.7vw, 57px); white-space: normal; }
-  .services__nav--left { left: 28px; width: 238px; }
-  .services__nav--right { right: 28px; width: 238px; }
-  .services__nav-item { font-size: 14px; }
-  .services__benefits li { font-size: 18px; font-weight: 400; }
+  .services__deck {
+    width: calc(100% - 540px);
+    max-width: 1010px;
+  }
+  .services__card-inner {
+    width: 100%;
+  }
+  .services__title {
+    font-size: clamp(46px, 3.7vw, 57px);
+    white-space: normal;
+  }
+  .services__nav--left {
+    left: 28px;
+    width: 238px;
+  }
+  .services__nav--right {
+    right: 28px;
+    width: 238px;
+  }
+  .services__nav-item {
+    font-size: 14px;
+  }
+  .services__benefits li {
+    font-size: 18px;
+    font-weight: 400;
+  }
 }
 
 @media (max-width: 1100px) {
-  .services-scroll { height: calc(100svh + 270vh); }
-  .services { height: 100svh; min-height: 780px; }
-  .services__deck { width: min(1107px, calc(100% - 80px)); }
-  .services__card-inner { width: 100%; }
-  .services__nav { top: auto; bottom: 170px; transform: none; gap: 12px; }
-  .services__nav--left { left: 40px; width: 44%; }
-  .services__nav--right { right: 40px; width: 44%; }
-  .services__benefits { margin-top: 48px; }
-  .services__pagination { bottom: 45px; right: 25px; width: 320px; font-size: 19px; }
-  .services__progress { width: 190px; }
+  .services-scroll {
+    height: calc(100svh + 270vh);
+  }
+  .services {
+    height: 100svh;
+    min-height: 780px;
+  }
+  .services__deck {
+    width: min(1107px, calc(100% - 80px));
+  }
+  .services__card-inner {
+    width: 100%;
+  }
+  .services__nav {
+    top: auto;
+    bottom: 170px;
+    transform: none;
+    gap: 12px;
+  }
+  .services__nav--left {
+    left: 40px;
+    width: 44%;
+  }
+  .services__nav--right {
+    right: 40px;
+    width: 44%;
+  }
+  .services__benefits {
+    margin-top: 48px;
+  }
+  .services__pagination {
+    bottom: 45px;
+    right: 25px;
+    width: 320px;
+    font-size: 19px;
+  }
+  .services__progress {
+    width: 190px;
+  }
 }
 
 @media (max-width: 650px) {
-  .services-scroll { height: calc(100svh + 270vh); }
-  .services { height: 100svh; min-height: 720px; }
-  .services__eyebrow { top: 24px; left: 20px; font-size: 11px; }
-  .services__quote { top: 55px; left: 20px; right: 20px; font-size: 10px; white-space: normal; }
-  .services__quote span { display: block; margin: 6px 0 0; font-size: 10px; }
-  .services__deck { top: 42%; width: calc(100% - 40px); height: min(553px, 58svh); }
-  .services__card-inner { top: 20px; transform: translateX(-50%); width: 100%; }
-  .services__title { font-size: clamp(28px, 7vw, 40px); white-space: normal; }
-  .services__description { margin-top: 18px; font-size: 16px; }
-  .services__benefits { width: 100%; margin-top: 42px; gap: 16px; }
-  .services__benefits li { font-size: 14px; line-height: 1.35; white-space: normal; }
-  .services__benefits li::before { top: 5px; width: 6px; height: 6px; }
-  .services__nav { top: auto; bottom: 95px; transform: none; gap: 8px; }
-  .services__nav--left { left: 20px; width: calc(50% - 26px); }
-  .services__nav--right { right: 20px; width: calc(50% - 26px); }
-  .services__nav-item { white-space: normal; font-size: 10px; min-height: 24px; line-height: 1.2; }
-  .services__indicator { flex-basis: 4px; width: 4px; height: 4px; }
-  .services__pagination { bottom: 26px; right: 20px; width: min(60vw, 225px); font-size: 16px; }
-  .services__progress { width: 53%; }
+  .services-scroll {
+    height: calc(100svh + 270vh);
+  }
+  .services {
+    height: 100svh;
+    min-height: 720px;
+  }
+  .services__eyebrow {
+    top: 24px;
+    left: 20px;
+    font-size: 11px;
+  }
+  .services__quote {
+    top: 55px;
+    left: 20px;
+    right: 20px;
+    font-size: 10px;
+    white-space: normal;
+  }
+  .services__quote span {
+    display: block;
+    margin: 6px 0 0;
+    font-size: 10px;
+  }
+  .services__deck {
+    top: 42%;
+    width: calc(100% - 40px);
+    height: min(553px, 58svh);
+  }
+  .services__card-inner {
+    top: 20px;
+    transform: translateX(-50%);
+    width: 100%;
+  }
+  .services__title {
+    font-size: clamp(28px, 7vw, 40px);
+    white-space: normal;
+  }
+  .services__description {
+    margin-top: 18px;
+    font-size: 16px;
+  }
+  .services__benefits {
+    width: 100%;
+    margin-top: 42px;
+    gap: 16px;
+  }
+  .services__benefits li {
+    font-size: 14px;
+    line-height: 1.35;
+    white-space: normal;
+  }
+  .services__benefits li::before {
+    top: 5px;
+    width: 6px;
+    height: 6px;
+  }
+  .services__nav {
+    top: auto;
+    bottom: 95px;
+    transform: none;
+    gap: 8px;
+  }
+  .services__nav--left {
+    left: 20px;
+    width: calc(50% - 26px);
+  }
+  .services__nav--right {
+    right: 20px;
+    width: calc(50% - 26px);
+  }
+  .services__nav-item {
+    white-space: normal;
+    font-size: 10px;
+    min-height: 24px;
+    line-height: 1.2;
+  }
+  .services__indicator {
+    flex-basis: 4px;
+    width: 4px;
+    height: 4px;
+  }
+  .services__pagination {
+    bottom: 26px;
+    right: 20px;
+    width: min(60vw, 225px);
+    font-size: 16px;
+  }
+  .services__progress {
+    width: 53%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .services__nav-item, .services__indicator { transition: none; }
-  .services__card { will-change: auto; }
+  .services__nav-item, .services__indicator {
+    transition: none;
+  }
+  .services__card {
+    will-change: auto;
+  }
 }

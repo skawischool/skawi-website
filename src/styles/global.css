@@ -6,14 +6,42 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: auto; }
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
 /* Lenis.stop() normally switches the root to overflow:clip, removing the
    Windows scrollbar and shifting the 100%-wide About Us composition.
    Preserve the scrollbar gutter for the whole navigation transition. */
-html.lenis.lenis-stopped { overflow-y: scroll !important; }
-body { margin: 0; min-width: 320px; background: #f6fffc; }
-#root, main { background: #f6fffc; }
-button, input, textarea { font: inherit; }
-button:focus-visible, a:focus-visible { outline: 2px solid #dabe73; outline-offset: 4px; }
-img, video { display: block; max-width: 100%; }
+html.lenis.lenis-stopped {
+  overflow-y: scroll !important;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #f6fffc;
+}
+
+#root, main {
+  background: #f6fffc;
+}
+
+button, input, textarea {
+  font: inherit;
+}
+
+button:focus-visible, a:focus-visible {
+  outline: 2px solid #dabe73;
+  outline-offset: 4px;
+}
+
+img, video {
+  display: block;
+  max-width: 100%;
+}

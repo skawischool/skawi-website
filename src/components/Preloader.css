@@ -52,8 +52,12 @@
 }
 
 @keyframes skawi-preloader-spin {
-  0% { transform: rotateY(0deg); }
-  100% { transform: rotateY(360deg); }
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
 }
 
 @media (max-width: 600px) {
@@ -64,8 +68,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .skawi-preloader { transition-duration: 150ms; }
-  .skawi-preloader__coin { animation: none; }
+  .skawi-preloader {
+    transition-duration: 150ms;
+  }
+  .skawi-preloader__coin {
+    animation: none;
+  }
 }
 
 /* Bali-inspired section navigation transition, separate from the opening preloader. */
@@ -85,9 +93,7 @@
   will-change: transform;
 }
 
-.skawi-section-transition--enter,
-.skawi-section-transition--logo-in,
-.skawi-section-transition--logo-out {
+.skawi-section-transition--enter, .skawi-section-transition--logo-in, .skawi-section-transition--logo-out {
   transform: translate3d(0, 0, 0);
 }
 
@@ -110,9 +116,7 @@
   height: 220px;
   opacity: 0;
   clip-path: inset(0 50% 0 50%);
-  transition:
-    clip-path 1000ms cubic-bezier(.65, 0, .35, 1),
-    opacity 1000ms cubic-bezier(.65, 0, .35, 1);
+  transition: clip-path 1000ms cubic-bezier(.65, 0, .35, 1),     opacity 1000ms cubic-bezier(.65, 0, .35, 1);
   will-change: clip-path, opacity;
 }
 
@@ -141,8 +145,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .skawi-section-transition,
-  .skawi-section-transition__logo {
+  .skawi-section-transition,   .skawi-section-transition__logo {
     transition-duration: 150ms;
   }
 }

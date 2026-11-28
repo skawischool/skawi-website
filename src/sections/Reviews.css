@@ -1,20 +1,124 @@
 /* Review section, Figma 145:294 and modal states. */
-.reviews { position:relative; margin-top:120px; min-height:1002px; background:#023536; color:#F6FFFC; font-family:Inter,sans-serif; overflow:hidden; box-sizing:border-box; padding:60px 0 164px; }
-.reviews__topline { display:flex; justify-content:space-between; gap:24px; margin:0 40px 89px; font-size:14px; font-weight:400; line-height:1.1; letter-spacing:.7px; text-transform:uppercase; }
-.reviews__topline h2 { margin:0; font:inherit; }
-.reviews__topline span { text-align:right; }
-.reviews__rows { display:flex; flex-direction:column; gap:34px; }
-.reviews__row { overflow:hidden; touch-action:pan-y; }
-.reviews__track,.reviews__group { display:flex; width:max-content; flex:none; }
-.reviews__track { will-change:transform; }
-.reviews__group { gap:34px; padding-right:34px; }
-.reviews__card { position:relative; flex:0 0 390px; width:390px; height:320px; background:#fff; color:#023536; border-radius:20px; overflow:hidden; box-sizing:border-box; }
-.reviews__avatar { height:104px; width:100%; overflow:hidden; border-radius:20px 20px 0 0; }
-.reviews__avatar img { display:block; width:100%; height:100%; object-fit:cover; object-position:top left; pointer-events:none; user-select:none; }
-.reviews__text { margin:24px 22px 0; font:400 16px/1.4 Inter,sans-serif; white-space:pre-line; overflow-wrap:anywhere; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:6; overflow:hidden; }
-.reviews__card:has(.reviews__more) .reviews__text { -webkit-line-clamp:6; }
-.reviews__more { position:absolute; bottom:22px; left:22px; padding:0; border:0; background:none; color:inherit; font:600 14px/1.4 Inter,sans-serif; cursor:pointer; }
-.reviews__more:hover { text-decoration:underline; text-underline-offset:3px; }
+.reviews {
+  position: relative;
+  margin-top: 120px;
+  min-height: 1002px;
+  background: #023536;
+  color: #F6FFFC;
+  font-family: Inter,sans-serif;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 60px 0 164px;
+}
+
+.reviews__topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 40px 89px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: .7px;
+  text-transform: uppercase;
+}
+
+.reviews__topline h2 {
+  margin: 0;
+  font: inherit;
+}
+
+.reviews__topline span {
+  text-align: right;
+}
+
+.reviews__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.reviews__row {
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.reviews__track,.reviews__group {
+  display: flex;
+  width: max-content;
+  flex: none;
+}
+
+.reviews__track {
+  will-change: transform;
+}
+
+.reviews__group {
+  gap: 34px;
+  padding-right: 34px;
+}
+
+.reviews__card {
+  position: relative;
+  flex: 0 0 390px;
+  width: 390px;
+  height: 320px;
+  background: #fff;
+  color: #023536;
+  border-radius: 20px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.reviews__avatar {
+  height: 104px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+
+.reviews__avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  pointer-events: none;
+  user-select: none;
+}
+
+.reviews__text {
+  margin: 24px 22px 0;
+  font: 400 16px/1.4 Inter,sans-serif;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  overflow: hidden;
+}
+
+.reviews__card:has(.reviews__more) .reviews__text {
+  -webkit-line-clamp: 6;
+}
+
+.reviews__more {
+  position: absolute;
+  bottom: 22px;
+  left: 22px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: 600 14px/1.4 Inter,sans-serif;
+  cursor: pointer;
+}
+
+.reviews__more:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .reviews-modal {
   position: fixed;
   inset: 0;
@@ -31,6 +135,7 @@
   visibility: hidden;
   transition: opacity .48s cubic-bezier(.22, 1, .36, 1), visibility 0s linear .48s;
 }
+
 .reviews-modal.is-visible {
   opacity: 1;
   visibility: visible;
@@ -43,6 +148,7 @@
   pointer-events: auto;
   transition: opacity .30s ease .45s, visibility 0s linear .75s;
 }
+
 .reviews-modal.is-closing .reviews__card--full {
   opacity: 0;
   transform: translate3d(0, 12px, 0) scale(.94);
@@ -50,11 +156,13 @@
   transition: opacity .25s ease, transform .36s cubic-bezier(.4, 0, .6, 1), filter .3s ease;
   transition-delay: 0s;
 }
+
 .reviews-modal.is-closing .reviews-modal__glass {
   opacity: 0;
   transform: translate3d(0, 0, 0) scale(1);
   transition: opacity .35s ease .20s, transform .25s ease;
 }
+
 .reviews-modal.is-closing .reviews-modal__close {
   opacity: 0;
   transform: scale(.78) rotate(-35deg);
@@ -78,11 +186,10 @@
   -webkit-backdrop-filter: blur(25px);
   opacity: 0;
   transform: translate3d(0, 42px, 0) scale(.955);
-  transition:
-    transform .78s cubic-bezier(.16, 1, .3, 1),
-    opacity .55s cubic-bezier(.22, 1, .36, 1);
+  transition: transform .78s cubic-bezier(.16, 1, .3, 1),     opacity .55s cubic-bezier(.22, 1, .36, 1);
   will-change: transform, opacity;
 }
+
 .reviews-modal.is-visible .reviews-modal__glass {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1);
@@ -101,19 +208,16 @@
   opacity: 0;
   transform: translate3d(0, 22px, 0) scale(.93);
   filter: blur(6px);
-  transition:
-    opacity .58s ease,
-    transform .85s cubic-bezier(.16, 1, .3, 1),
-    filter .65s ease;
+  transition: opacity .58s ease,     transform .85s cubic-bezier(.16, 1, .3, 1),     filter .65s ease;
   transition-delay: 0s;
 }
+
 .reviews-modal.is-visible .reviews__card--full {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1);
   filter: blur(0);
   transition-delay: .15s;
 }
-
 
 .reviews-modal__close {
   position: absolute;
@@ -128,19 +232,81 @@
   background: transparent;
   cursor: pointer;
 }
-.reviews-modal__close svg { display: block; width: 100%; height: 100%; }
+
+.reviews-modal__close svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .reviews-modal__close {
   opacity: 0;
   transform: scale(.7) rotate(-45deg);
   transition: transform .55s cubic-bezier(.16, 1, .3, 1), opacity .4s ease, filter .2s ease;
 }
+
 .reviews-modal.is-visible .reviews-modal__close {
   opacity: 1;
   transform: scale(1) rotate(0);
   transition-delay: .28s;
 }
-.reviews-modal__close:hover { filter: brightness(1.1); transform: scale(1.12) rotate(0); }
 
-.reviews__card--full .reviews__text { display:block; overflow:visible; }
-@media(max-width:800px){.reviews{margin-top:80px;min-height:0;padding:40px 0 80px}.reviews__topline{margin:0 20px 50px;font-size:11px}.reviews__rows{gap:20px}.reviews__group{gap:20px;padding-right:20px}.reviews__card:not(.reviews__card--full){width:min(390px,85vw);flex-basis:min(390px,85vw);height:320px}.reviews__text{font-size:14px}.reviews-modal__close{top:20px;right:20px}.reviews-modal__glass{padding:60px 16px 24px}}
-@media(prefers-reduced-motion:reduce){.reviews__row{overflow-x:auto}.reviews__track{transform:none!important}.reviews__group[aria-hidden=true]{display:none}.reviews-modal,.reviews-modal__glass,.reviews__card--full,.reviews-modal__close,.reviews-modal.is-closing,.reviews-modal.is-closing .reviews-modal__glass,.reviews-modal.is-closing .reviews__card--full,.reviews-modal.is-closing .reviews-modal__close{animation:none!important;transition:none!important}}
+.reviews-modal__close:hover {
+  filter: brightness(1.1);
+  transform: scale(1.12) rotate(0);
+}
+
+.reviews__card--full .reviews__text {
+  display: block;
+  overflow: visible;
+}
+
+@media(max-width:800px) {
+  .reviews {
+    margin-top: 80px;
+    min-height: 0;
+    padding: 40px 0 80px
+  }
+  .reviews__topline {
+    margin: 0 20px 50px;
+    font-size: 11px
+  }
+  .reviews__rows {
+    gap: 20px
+  }
+  .reviews__group {
+    gap: 20px;
+    padding-right: 20px
+  }
+  .reviews__card:not(.reviews__card--full) {
+    width: min(390px,85vw);
+    flex-basis: min(390px,85vw);
+    height: 320px
+  }
+  .reviews__text {
+    font-size: 14px
+  }
+  .reviews-modal__close {
+    top: 20px;
+    right: 20px
+  }
+  .reviews-modal__glass {
+    padding: 60px 16px 24px
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .reviews__row {
+    overflow-x: auto
+  }
+  .reviews__track {
+    transform: none!important
+  }
+  .reviews__group[aria-hidden=true] {
+    display: none
+  }
+  .reviews-modal,.reviews-modal__glass,.reviews__card--full,.reviews-modal__close,.reviews-modal.is-closing,.reviews-modal.is-closing .reviews-modal__glass,.reviews-modal.is-closing .reviews__card--full,.reviews-modal.is-closing .reviews-modal__close {
+    animation: none!important;
+    transition: none!important
+  }
+}

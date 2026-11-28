@@ -127,31 +127,62 @@
 }
 
 @media (max-width: 800px) {
-  .about-us { padding: 40px 20px; }
-  .about-us__photo { background-position: center; }
-  .about-us__panel { width: 100%; height: auto; min-height: 629px; padding: 75px 28px 72px; overflow: visible; }
+  .about-us {
+    padding: 40px 20px;
+  }
+  .about-us__photo {
+    background-position: center;
+  }
+  .about-us__panel {
+    width: 100%;
+    height: auto;
+    min-height: 629px;
+    padding: 75px 28px 72px;
+    overflow: visible;
+  }
   .about-us__eyebrow, .about-us__title, .about-us__signature, .about-us__body {
     position: static;
     transform: none;
     width: auto;
     max-width: 100%;
   }
-  .about-us__eyebrow { margin-bottom: 24px; }
-  .about-us__title { font-size: clamp(30px, 5vw, 38px); }
-  .about-us__signature { margin-top: 22px; }
-  .about-us__body { margin-top: 48px; font-size: clamp(16px, 2.7vw, 22px); }
+  .about-us__eyebrow {
+    margin-bottom: 24px;
+  }
+  .about-us__title {
+    font-size: clamp(30px, 5vw, 38px);
+  }
+  .about-us__signature {
+    margin-top: 22px;
+  }
+  .about-us__body {
+    margin-top: 48px;
+    font-size: clamp(16px, 2.7vw, 22px);
+  }
 }
 
 @media (max-width: 480px) {
-  .about-us { padding: 20px 14px; }
-  .about-us__panel { padding: 50px 20px; min-height: 0; }
-  .about-us__title { font-size: 29px; }
-  .about-us__body { margin-top: 35px; font-size: 16px; line-height: 1.6; }
+  .about-us {
+    padding: 20px 14px;
+  }
+  .about-us__panel {
+    padding: 50px 20px;
+    min-height: 0;
+  }
+  .about-us__title {
+    font-size: 29px;
+  }
+  .about-us__body {
+    margin-top: 35px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
 }
 
-
 @media (prefers-reduced-motion: reduce) {
-  .about-us-scroll { height: 100svh; }
+  .about-us-scroll {
+    height: 100svh;
+  }
   .about-us {
     --about-photo-scale: 1 !important;
     --about-photo-radius: 0px !important;
