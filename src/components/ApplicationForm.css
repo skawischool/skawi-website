@@ -116,3 +116,27 @@
 /* Delivery heading and first option: one 32px gap, not gap plus legend margin. */
 .application__content--2 fieldset+fieldset{display:flex;gap:32px}
 .application__content--2 .application__delivery-heading{margin:0;padding:0}
+
+/* Final application confirmation — shared panel size, centered composition. */
+.application--success .application__top{padding-right:0}
+.application--success .application__bottom{justify-content:center;align-items:center}
+.application--success .application__actions{justify-content:center;flex:0 1 auto}
+.application--success .application__panel{width:min(718px,100%);min-height:626px}
+.application__content--3{min-height:626px;padding:60px 40px;justify-content:center;gap:60px;font-weight:400}
+.application__content--3 h2{font-weight:500}
+.application__content--3 p{font-size:16px;font-weight:400;margin:0;line-height:1.4}
+.application__content--3 h3{font-size:26px;font-weight:400;margin:0}
+@media(min-width:1250px){
+ .application--success .application__middle{min-height:626px}
+ .application--success .application__panel{width:718px;height:626px;overflow:auto}
+ .application__content--3 h2{font-size:64px}
+}
+@media(max-width:1000px){
+ .application--success .application__panel{margin-inline:auto;min-height:0}
+ .application__content--3{min-height:380px;padding:40px 24px;gap:40px}
+ .application--success .application__actions{width:100%}
+}
+@media(max-width:480px){
+ .application__content--3{padding:32px 20px;gap:32px}
+ .application__content--3 h3{font-size:22px}
+}
