@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
 .team-scroll {
   position: relative;
-  margin-top: 120px;
+  
   height: 280vh;
   height: 280svh;
 }
@@ -332,4 +332,8 @@
   .team__progress button::after {
     transition-duration: 0ms;
   }
+}
+
+.team__topline {
+  top: var(--section-top-inset);
 }

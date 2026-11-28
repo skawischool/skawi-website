@@ -8,7 +8,7 @@ html.gallery-modal-locked {
 }
 
 .gallery-section {
-  margin-top: 120px;
+  
   position: relative;
   width: 100%;
   min-height: 1910px;
@@ -342,4 +342,8 @@ html.gallery-modal-locked {
   .gallery-lightbox.is-closing,   .gallery-lightbox.is-closing .gallery-lightbox__content,   .gallery-lightbox.is-closing .gallery-lightbox__card,   .gallery-lightbox.is-closing .gallery-lightbox__close {
     transition: none;
   }
+}
+
+.gallery__topline {
+  padding-top: var(--section-top-inset);
 }

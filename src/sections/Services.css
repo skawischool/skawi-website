@@ -1,6 +1,6 @@
 .services-scroll {
   position: relative;
-  margin-top: 160px;
+  
   height: calc(1002px + 270vh);
   background: #023536;
 }
@@ -483,5 +483,16 @@
   }
   .services__card {
     will-change: auto;
+  }
+}
+
+.services__eyebrow,
+.services__quote {
+  top: var(--section-top-inset);
+}
+
+@media (max-width: 650px) {
+  .services__quote {
+    top: calc(var(--section-top-inset) + 31px);
   }
 }

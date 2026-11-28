@@ -45,3 +45,21 @@ img, video {
   display: block;
   max-width: 100%;
 }
+
+/* Shared spacing for the main page sections. */
+:root {
+  --section-gap: 120px;
+  --section-top-inset: 60px;
+}
+
+main > .services-scroll,
+main > .about-us-scroll,
+main > .team-scroll,
+main > .gallery-section,
+main > .benefits-scroll,
+main > .awards-scroll,
+main > .reviews,
+main > .enrollment,
+main > .pricing {
+  margin-top: var(--section-gap);
+}

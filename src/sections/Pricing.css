@@ -347,3 +347,7 @@
     }
   }
 }
+
+.pricing {
+  padding-top: var(--section-top-inset);
+}

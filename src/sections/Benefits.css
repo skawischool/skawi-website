@@ -2,7 +2,7 @@
 .benefits-scroll {
   position: relative;
   height: 390svh;
-  margin-top: 120px;
+  
   background: #F6FFFC;
 }
 
@@ -259,7 +259,7 @@
 
 @media (max-width: 800px) {
   .benefits-scroll {
-    margin-top: 80px;
+    
     height: 380svh;
   }
   .benefits {
@@ -357,5 +357,17 @@
   }
   .benefits__segments i {
     transition: none;
+  }
+}
+
+.benefits__heading,
+.benefits__quote {
+  top: var(--section-top-inset);
+}
+
+@media (max-width: 800px) {
+  /* The stacked right column is shorter than the desktop composition. */
+  .benefits__quote {
+    top: min(var(--section-top-inset), 10%);
   }
 }

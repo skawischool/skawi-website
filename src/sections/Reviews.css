@@ -1,7 +1,7 @@
 /* Review section, Figma 145:294 and modal states. */
 .reviews {
   position: relative;
-  margin-top: 120px;
+  
   min-height: 1002px;
   background: #023536;
   color: #F6FFFC;
@@ -263,7 +263,7 @@
 
 @media(max-width:800px) {
   .reviews {
-    margin-top: 80px;
+    
     min-height: 0;
     padding: 40px 0 80px
   }
@@ -309,4 +309,8 @@
     animation: none!important;
     transition: none!important
   }
+}
+
+.reviews {
+  padding-top: var(--section-top-inset);
 }

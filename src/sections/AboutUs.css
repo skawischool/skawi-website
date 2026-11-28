@@ -1,7 +1,7 @@
 .about-us-scroll {
   position: relative;
   height: 200svh;
-  margin-top: 120px;
+  
   background: #f6fffc;
 }
 
@@ -188,5 +188,15 @@
     --about-photo-radius: 0px !important;
     --about-copy-opacity: 1 !important;
     --about-copy-shift: 0px !important;
+  }
+}
+
+.about-us__eyebrow {
+  top: var(--section-top-inset);
+}
+
+@media (max-width: 800px) {
+  .about-us__panel {
+    padding-top: var(--section-top-inset);
   }
 }
