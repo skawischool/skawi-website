@@ -93,9 +93,8 @@ export default function ApplicationForm({tariff,language,closing,onClose}){
  }
  return createPortal(<div ref={dialog} role="dialog" aria-modal="true" aria-labelledby="application-heading" data-lenis-prevent className={'application '+(closing?'application--closing ':'')+(step===3?'application--success':'')}>
  <div className="application__shell">
-  <div className="application__top"><span>{c.labels[step]}</span>{step===3?<span className="application__counter">{c.status[1]}</span>:<div className="application__progress"><span>0{step+1}</span><div aria-hidden="true" className="application__progress-lines">{[0,1,2].map(i=><span key={i} className={i<=step?'is-filled':''}/>)}</div><span>03</span></div>}</div>
-  {step!==3&&<button type="button" disabled={busy||closing} className="application__close" aria-label={c.close} onClick={()=>onClose(false)}><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="14" fill="#023536"/><path d="M9 9l10 10M19 9L9 19" stroke="#EAF4F0" strokeWidth="1.5"/></svg></button>}
-  <div className="application__middle">
+  <div className="application__top"><span>{c.labels[step]}</span>{step===3?<span className="application__counter">{c.status[1]}</span>:<div className="application__progress"><span>0{step+1}</span><div aria-hidden="true" className="application__progress-lines">{[0,1,2].map(i=><span key={i} className={i<=step?'is-filled':''}/>)}</div><span>03</span></div>}{step!==3&&<button type="button" disabled={busy||closing} className="application__close" aria-label={c.close} onClick={()=>onClose(false)}><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="14" fill="#023536"/><path d="M9 9l10 10M19 9L9 19" stroke="#EAF4F0" strokeWidth="1.5"/></svg></button>}</div>
+    <div className="application__middle">
    {step!==3&&<div key={step} className={'application__intro application__motion--'+direction}><h2 id="application-heading" tabIndex={-1} ref={heading}>{c.headings[step]}</h2><p>{c.descriptions[step]}</p></div>}
    <div className="application__panel">
     <div key={step} className={'application__content application__content--'+step+' application__motion--'+direction}>
@@ -106,6 +105,6 @@ export default function ApplicationForm({tariff,language,closing,onClose}){
     </div>
    </div>
   </div>
-  <div className="application__bottom"><span className="application__counter">{step===3?c.status[2]:c.status[0]+'  0'+(step+1)+' / 03'}</span><div className="application__actions">{error&&<p role="alert" className="application__error">{error}</p>}{step===2&&<div ref={challenge} className="application__challenge"/>}{step>0&&step<3&&<Action back label={c.buttons[1]} onClick={()=>move(step-1)} disabled={busy||closing}/>}<Action label={step===3?c.buttons[3]:step===2?(busy?c.buttons[4]:c.buttons[2]):c.buttons[0]} wide={step===3?'application__action--return':step===2?'application__action--submit':''} disabled={busy||closing} onClick={step===3?()=>onClose(true):step===2?submit:next}/></div></div>
+  <div className="application__bottom">{step===3&&<span className="application__counter">{c.status[2]}</span>}<div className="application__actions">{error&&<p role="alert" className="application__error">{error}</p>}{step===2&&<div ref={challenge} className="application__challenge"/>}{step>0&&step<3&&<Action back label={c.buttons[1]} onClick={()=>move(step-1)} disabled={busy||closing}/>}<Action label={step===3?c.buttons[3]:step===2?(busy?c.buttons[4]:c.buttons[2]):c.buttons[0]} wide={step===3?'application__action--return':step===2?'application__action--submit':''} disabled={busy||closing} onClick={step===3?()=>onClose(true):step===2?submit:next}/></div></div>
  </div></div>,document.body);
 }
