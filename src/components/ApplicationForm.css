@@ -23,7 +23,7 @@
 .application__privacy{font-size:16px;font-weight:400;margin:10px 0 0}
 .application__content--1{padding:40px;justify-content:flex-start;gap:12px}
 .application__goals{display:flex;flex-direction:column;gap:22px}
-.application__option{position:relative;display:flex;align-items:center;gap:12px;cursor:pointer;min-height:25px;font-size:18px;line-height:1.4}
+.application__option{position:relative;display:flex;align-items:center;gap:12px;cursor:pointer;min-height:25px;font-size:18px;line-height:1.4;font-weight:400}
 .application__option input{position:absolute;opacity:0;width:12px;height:12px;left:0;margin:0}
 .application__circle{position:relative;flex:0 0 12px;width:12px;height:12px}
 .application__circle img{position:absolute;inset:0;width:12px;height:12px}
