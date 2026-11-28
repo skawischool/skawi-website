@@ -49,33 +49,44 @@ export default function App() {
     setApplication(tariff);
   }, []);
   const closeApplication = useCallback((success = false) => {
-    if (applicationTimer.current) return;
+    if (applicationTimer.current || transitionActiveRef.current) return;
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     setApplicationClosing(true);
-    if (success) {
-      transitionActiveRef.current = true;
-      setSectionTransitionPhase('enter');
-      transitionTimers.current.push(window.setTimeout(() => setSectionTransitionPhase('logo-in'), 500));
+    if (!success) {
+      applicationTimer.current = window.setTimeout(() => {
+        applicationTimer.current = null;
+        setApplication(null);
+        setApplicationClosing(false);
+        lenisRef.current?.start();
+        requestAnimationFrame(() => applicationTrigger.current?.focus({preventScroll:true}));
+      }, reduced ? 0 : 650);
+      return;
     }
-    applicationTimer.current = window.setTimeout(() => {
-      applicationTimer.current = null;
+    // Keep the confirmation opaque until the higher-z-index curtain covers it.
+    transitionActiveRef.current = true;
+    transitionTimers.current.forEach(window.clearTimeout);
+    const schedule = (fn, delay) => transitionTimers.current.push(window.setTimeout(fn, delay));
+    setSectionTransitionPhase('enter');
+    schedule(() => setSectionTransitionPhase('logo-in'), reduced ? 150 : 500);
+    schedule(() => {
       setApplication(null);
       setApplicationClosing(false);
-      if (success) {
+      // Removing the portal restores body overflow. Scroll after React commits it.
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        lenisRef.current?.resize();
         if (lenisRef.current) lenisRef.current.scrollTo(0, { immediate: true, force: true });
-        else window.scrollTo(0, 0);
-        transitionTimers.current.push(window.setTimeout(() => setSectionTransitionPhase('logo-out'), 1000));
-        transitionTimers.current.push(window.setTimeout(() => setSectionTransitionPhase('exit'), 1650));
-        transitionTimers.current.push(window.setTimeout(() => {
-          setSectionTransitionPhase('idle');
-          transitionActiveRef.current = false;
-          lenisRef.current?.start();
-        }, 2650));
-      } else {
-        lenisRef.current?.start();
-        applicationTrigger.current?.focus({preventScroll:true});
-      }
-    }, success ? 1000 : reduced ? 0 : 650);
+        window.scrollTo({top:0, left:0, behavior:'instant'});
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          schedule(() => setSectionTransitionPhase('logo-out'), reduced ? 100 : 950);
+          schedule(() => setSectionTransitionPhase('exit'), reduced ? 250 : 1600);
+          schedule(() => {
+            setSectionTransitionPhase('idle');
+            transitionActiveRef.current = false;
+            lenisRef.current?.start();
+          }, reduced ? 450 : 2500);
+        }));
+      }));
+    }, reduced ? 200 : 1000);
   }, []);
   useEffect(() => () => window.clearTimeout(applicationTimer.current), []);
 

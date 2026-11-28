@@ -140,3 +140,19 @@
  .application__content--3{padding:32px 20px;gap:32px}
  .application__content--3 h3{font-size:22px}
 }
+
+/* Confirmation typography and header-style return action. */
+.application__content--3{gap:40px}
+.application__content--3 h2{font-size:clamp(34px,3.333vw,48px)}
+.application__content--3 p{max-width:480px}
+.application__content--3 h3{font-size:24px}
+.application__action--return.pricing__cta{background:transparent;color:#023536;border-color:#023536;--plan-hover:#023536;--plan-hover-text:#EAF4F0}
+.application__action--return.pricing__cta:hover,.application__action--return.pricing__cta:focus-visible{background:#023536;color:#EAF4F0;border-color:#023536}
+@media(min-width:1250px){
+ .application--success .application__shell{grid-template-rows:626px 66px;align-content:center;gap:40px}
+ .application--success .application__top{position:absolute;top:60px;left:clamp(30px,5.20833vw,100px);right:clamp(30px,5.20833vw,100px)}
+ .application--success .application__middle{grid-row:1}
+ .application--success .application__bottom{grid-row:2}
+ .application__content--3 h2{font-size:48px}
+}
+@media(max-width:480px){.application__content--3 h3{font-size:22px}}

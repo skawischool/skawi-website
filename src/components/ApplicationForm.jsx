@@ -27,7 +27,8 @@ function Action({label,back=false,wide='',onClick,disabled=false}){
   const measure=()=>{const s=getComputedStyle(el),w=el.clientWidth-parseFloat(s.paddingLeft)-parseFloat(s.paddingRight);el.style.setProperty('--plan-label-travel',(back?-1:1)*Math.max(0,w-text.current.offsetWidth)+'px');el.style.setProperty('--plan-arrow-travel',(back?1:-1)*Math.max(0,w-arrow.current.offsetWidth)+'px');};
   measure();const observer=new ResizeObserver(measure);observer.observe(el);observer.observe(text.current);return()=>observer.disconnect();
  },[label,back]);
- const icon=<span ref={arrow} className="pricing__arrow application__arrow" aria-hidden="true"><img src={base+'icons/'+(back?'application-back.svg':'application-next.svg')} width="36" height="36" alt=""/><img className="pricing__arrow-hover" src={base+'icons/'+(back?'application-back-hover.svg':'application-next-hover.svg')} width="36" height="36" alt=""/></span>;
+ const light=wide==='application__action--return';
+ const icon=<span ref={arrow} className="pricing__arrow application__arrow" aria-hidden="true"><img src={base+'icons/'+(back?'application-back.svg':light?'application-next-hover.svg':'application-next.svg')} width="36" height="36" alt=""/><img className="pricing__arrow-hover" src={base+'icons/'+(back?'application-back-hover.svg':light?'application-next.svg':'application-next-hover.svg')} width="36" height="36" alt=""/></span>;
  return <button type="button" ref={ref} disabled={disabled} className={'pricing__cta application__action '+(back?'application__action--back ':'')+wide} onClick={onClick}>{back&&icon}<span ref={text} className="pricing__cta-label">{label}</span>{!back&&icon}</button>;
 }
 function Option({label,checked,onChange,multiple,name}){
@@ -91,7 +92,7 @@ export default function ApplicationForm({tariff,language,closing,onClose}){
    ts.execute(widget.current);
   }catch{finishError(c.errors[5]);}
  }
- return createPortal(<div ref={dialog} role="dialog" aria-modal="true" aria-labelledby="application-heading" data-lenis-prevent className={'application '+(closing?'application--closing ':'')+(step===3?'application--success':'')}>
+ return createPortal(<div ref={dialog} role="dialog" aria-modal="true" aria-labelledby="application-heading" data-lenis-prevent className={'application '+(closing&&step!==3?'application--closing ':'')+(step===3?'application--success':'')}>
  <div className="application__shell">
   <div className="application__top"><span>{c.labels[step]}</span>{step===3?<span>{c.status[2]}</span>:null}{step!==3&&<button type="button" disabled={busy||closing} className="application__close" aria-label={c.close} onClick={()=>onClose(false)}><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="14" fill="#023536"/><path d="M9 9l10 10M19 9L9 19" stroke="#EAF4F0" strokeWidth="1.5"/></svg></button>}</div>
     <div className="application__middle">
