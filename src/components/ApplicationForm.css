@@ -88,3 +88,6 @@
 .application__bottom .application__progress-lines{flex:0 1 259px;min-width:0}
 @media(max-width:1000px){.application__bottom .application__progress{flex:0 1 36%;width:36%;gap:12px}.application__bottom .application__actions{flex:0 1 auto}}
 @media(max-width:600px){.application__bottom{flex-direction:column;align-items:stretch;gap:20px}.application__bottom .application__progress{flex:none;width:min(100%,445px);align-self:flex-start}.application__bottom .application__actions{width:100%}}
+
+/* Subtle placeholder text, distinct from entered values. */
+.application__field input::placeholder,.application__content textarea::placeholder{font-family:Inter,sans-serif;font-weight:400!important;color:#EAF4F0;opacity:.4;-webkit-text-fill-color:currentColor}
