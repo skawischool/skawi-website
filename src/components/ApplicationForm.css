@@ -81,3 +81,10 @@
 @media(min-width:1250px){.application__intro p{white-space:nowrap}}
 @media(max-width:1000px){.application__top:has(.application__close){padding-right:42px;gap:12px}.application__intro{padding-right:0}.application__progress{width:min(445px,50%)}}
 @media(max-width:480px){.application__top:has(.application__close){padding-right:36px;gap:8px}.application__progress{width:43%}.application__bottom{align-items:stretch}}
+
+/* Align the step indicator with the bottom action buttons. */
+.application__bottom{justify-content:space-between;align-items:center}
+.application__bottom .application__progress{flex:0 1 445px;width:445px;min-width:0}
+.application__bottom .application__progress-lines{flex:0 1 259px;min-width:0}
+@media(max-width:1000px){.application__bottom .application__progress{flex:0 1 36%;width:36%;gap:12px}.application__bottom .application__actions{flex:0 1 auto}}
+@media(max-width:600px){.application__bottom{flex-direction:column;align-items:stretch;gap:20px}.application__bottom .application__progress{flex:none;width:min(100%,445px);align-self:flex-start}.application__bottom .application__actions{width:100%}}
