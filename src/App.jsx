@@ -11,6 +11,7 @@ import Awards from './sections/Awards.jsx';
 import Reviews from './sections/Reviews.jsx';
 import Enrollment from './sections/Enrollment.jsx';
 import Pricing from './sections/Pricing.jsx';
+import ApplicationForm from './components/ApplicationForm.jsx';
 import Preloader from './components/Preloader.jsx';
 import './components/Preloader.css';
 
@@ -19,6 +20,10 @@ export default function App() {
   const [heroVideoReady, setHeroVideoReady] = useState(false);
   const markHeroVideoReady = useCallback(() => setHeroVideoReady(true), []);
   const [language, setLanguage] = useState('UA');
+  const [application, setApplication] = useState(null);
+  const [applicationClosing, setApplicationClosing] = useState(false);
+  const applicationTrigger = useRef(null);
+  const applicationTimer = useRef(null);
   const showHero = useCallback(() => setHeroRevealing(true), []);
   const lenisRef = useRef(null);
   const onGalleryModalChange = useCallback((open) => {
@@ -35,6 +40,44 @@ export default function App() {
   const transitionActiveRef = useRef(false);
   const aboutImageReadyRef = useRef(null);
   const [sectionTransitionPhase, setSectionTransitionPhase] = useState('idle');
+
+  const openApplication = useCallback((tariff) => {
+    if (transitionActiveRef.current) return;
+    applicationTrigger.current = document.activeElement;
+    lenisRef.current?.stop();
+    setApplicationClosing(false);
+    setApplication(tariff);
+  }, []);
+  const closeApplication = useCallback((success = false) => {
+    if (applicationTimer.current) return;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setApplicationClosing(true);
+    if (success) {
+      transitionActiveRef.current = true;
+      setSectionTransitionPhase('enter');
+      transitionTimers.current.push(window.setTimeout(() => setSectionTransitionPhase('logo-in'), 500));
+    }
+    applicationTimer.current = window.setTimeout(() => {
+      applicationTimer.current = null;
+      setApplication(null);
+      setApplicationClosing(false);
+      if (success) {
+        if (lenisRef.current) lenisRef.current.scrollTo(0, { immediate: true, force: true });
+        else window.scrollTo(0, 0);
+        transitionTimers.current.push(window.setTimeout(() => setSectionTransitionPhase('logo-out'), 1000));
+        transitionTimers.current.push(window.setTimeout(() => setSectionTransitionPhase('exit'), 1650));
+        transitionTimers.current.push(window.setTimeout(() => {
+          setSectionTransitionPhase('idle');
+          transitionActiveRef.current = false;
+          lenisRef.current?.start();
+        }, 2650));
+      } else {
+        lenisRef.current?.start();
+        applicationTrigger.current?.focus({preventScroll:true});
+      }
+    }, success ? 1000 : reduced ? 0 : 650);
+  }, []);
+  useEffect(() => () => window.clearTimeout(applicationTimer.current), []);
 
   // Image decoding can be deferred until the first time a large CSS
   // background appears. Start it as soon as the app mounts instead.
@@ -175,7 +218,7 @@ export default function App() {
           <img src={`${import.meta.env.BASE_URL}images/logo.webp`} alt="" width="220" height="220" />
         </div>
       </div>
-      <main>
+      <main inert={application !== null}>
         <Hero onVideoReady={markHeroVideoReady} revealing={heroRevealing} language={language} onLanguageChange={setLanguage} onSectionNavigate={navigateWithSplash} />
         <Services language={language} />
         <AboutUs language={language} />
@@ -185,8 +228,9 @@ export default function App() {
         <Awards language={language} />
         <Reviews language={language} onModalChange={onGalleryModalChange} />
         <Enrollment language={language} />
-        <Pricing language={language} onSectionNavigate={navigateWithSplash} />
+        <Pricing language={language} onApply={openApplication} />
       </main>
+      {application !== null && <ApplicationForm tariff={application} language={language} closing={applicationClosing} onClose={closeApplication} />}
     </>
   );
 }

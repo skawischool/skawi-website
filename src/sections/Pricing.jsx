@@ -23,19 +23,19 @@ const copy={
  ['Preparación de examen','Nivel A1–B2','Habla polaco libremente y sin barreras.',['Acompañamiento completo','Análisis del formato de los exámenes','Grupos pequeños de 4–6 personas','Práctica de tareas típicas']],
  ['Personal','Individual','Aprendizaje individual a tu ritmo.',['Análisis de tu progreso','Práctica con el profesor','Comentarios continuos','Programa individual']]]]
 };
-function PlanButton({dark,label,onNavigate}){
+function PlanButton({dark,label,onApply}){
  const ref=useRef(null),textRef=useRef(null),arrow=useRef(null);
  useEffect(()=>{
   const el=ref.current;
   const measure=()=>{const s=getComputedStyle(el);const w=el.clientWidth-parseFloat(s.paddingLeft)-parseFloat(s.paddingRight);el.style.setProperty('--plan-label-travel',Math.max(0,w-textRef.current.offsetWidth)+'px');el.style.setProperty('--plan-arrow-travel',-Math.max(0,w-arrow.current.offsetWidth)+'px');};
   measure();if(!('ResizeObserver' in window))return;const observer=new ResizeObserver(measure);observer.observe(el);observer.observe(textRef.current);return()=>observer.disconnect();
  },[label]);
- return <a ref={ref} className="pricing__cta" href="#enrollment" onClick={e=>{if(onNavigate&&!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey){e.preventDefault();onNavigate('#enrollment');}}}>
+ return <button type="button" ref={ref} className="pricing__cta pricing__cta--application" onClick={onApply}>
   <span ref={textRef} className="pricing__cta-label">{label}</span>
   <span ref={arrow} className="pricing__arrow" aria-hidden="true"><img src={import.meta.env.BASE_URL+'icons/cta-arrow'+(dark?'-active':'')+'.svg'} width="36" height="36" alt=""/><img className="pricing__arrow-hover" src={import.meta.env.BASE_URL+'icons/cta-arrow'+(dark?'':'-active')+'.svg'} width="36" height="36" alt=""/></span>
- </a>;
+ </button>;
 }
-export default function Pricing({language='UA',onSectionNavigate}){
+export default function Pricing({language='UA',onApply}){
  const [heading,quote,includes,cta,hour,plans]=copy[language]??copy.UA;
  const root=useRef(null);
  useEffect(()=>{
@@ -97,7 +97,7 @@ export default function Pricing({language='UA',onSectionNavigate}){
      <p className="pricing__price">{i===0?'1390 zł':i===1?'1500 zł':'75 - 85 zł/'+hour}</p>
      <div className="pricing__line" aria-hidden="true"/>
      <div className="pricing__features"><p>{includes}</p><ul>{features.map(feature=><li key={feature}>{feature}</li>)}</ul></div>
-     <PlanButton dark={i===1} label={cta} onNavigate={onSectionNavigate}/>
+     <PlanButton dark={i===1} label={cta} onApply={()=>onApply?.(i)}/>
     </div>
    </article>)}
   </div>
