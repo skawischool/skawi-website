@@ -156,3 +156,8 @@
  .application__content--3 h2{font-size:48px}
 }
 @media(max-width:480px){.application__content--3 h3{font-size:22px}}
+
+/* Restrained frosted-glass finish for the confirmation panel only. */
+.application--success .application__panel{background:linear-gradient(145deg,rgba(2,53,54,.91),rgba(2,53,54,.98) 64%,rgba(2,53,54,.94));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:inset 0 0 0 1px rgba(234,244,240,.12)}
+.application__content--3{gap:60px}
+@media(max-width:480px){.application__content--3{gap:40px}}
