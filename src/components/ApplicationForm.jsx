@@ -55,7 +55,7 @@ export default function ApplicationForm({tariff,language,closing,onClose}){
  const move=(next)=>{setError('');setDirection(next<step?'back':'forward');setStep(next);};
  const next=()=>{
   if(step===0&&(!details.name.trim()||details.phone.replace(/\D/g,'').length<7||(details.email.trim()&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(details.email.trim())))){setError(c.errors[0]);return;}
-  if(step===1&&(!goals.length||(goals.includes(9)&&!other.trim()))){setError(c.errors[1]);return;}
+  if(step===1&&(!goals.length||(goals.includes(c.goals.length-1)&&!other.trim()))){setError(c.errors[1]);return;}
   move(step+1);
  };
  function finishError(message){
@@ -69,7 +69,7 @@ export default function ApplicationForm({tariff,language,closing,onClose}){
   abort.current=new AbortController();
   timer.current=setTimeout(()=>abort.current?.abort(),25000);
   try{
-   const result=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},signal:abort.current.signal,body:JSON.stringify({type:'enrollment',token,name:details.name.trim(),phone:details.phone.trim(),email:details.email.trim(),tariff:tariffs[tariff],goal:goals.map(i=>copy.UA.goals[i]+(i===9?': '+other.trim():'')).join('; '),format:copy.UA.formats[format],method:copy.UA.methods[method],language})});
+   const result=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},signal:abort.current.signal,body:JSON.stringify({type:'enrollment',token,name:details.name.trim(),phone:details.phone.trim(),email:details.email.trim(),tariff:tariffs[tariff],goal:goals.map(i=>copy.UA.goals[i]+(i===copy.UA.goals.length-1?': '+other.trim():'')).join('; '),format:copy.UA.formats[format],method:copy.UA.methods[method],language})});
    const data=await result.json();
    if(!result.ok||!data.success)throw new Error('send');
    if(!alive.current)return;
@@ -99,7 +99,7 @@ export default function ApplicationForm({tariff,language,closing,onClose}){
    <div className="application__panel">
     <div key={step} className={'application__content application__content--'+step+' application__motion--'+direction}>
     {step===0&&<>{['name','phone','email'].map((key,i)=><label key={key} className="application__field"><span>{c.fields[i]}</span><input type={['text','tel','email'][i]} autoComplete={['name','tel','email'][i]} maxLength={[120,40,254][i]} required={i<2} placeholder={c.placeholders[i]} value={details[key]} onChange={e=>setDetails(old=>({...old,[key]:e.target.value}))}/></label>)}<p className="application__privacy">{c.privacy}</p></>}
-    {step===1&&<><div className="application__goals">{c.goals.map((label,i)=><Option key={i} label={label} multiple checked={goals.includes(i)} onChange={()=>setGoals(old=>old.includes(i)?old.filter(x=>x!==i):[...old,i])}/>)}</div><textarea aria-label={c.other} placeholder={c.other} maxLength={1000} disabled={!goals.includes(9)} value={other} onChange={e=>setOther(e.target.value)}/></>}
+    {step===1&&<><div className="application__goals">{c.goals.map((label,i)=><Option key={i} label={label} multiple checked={goals.includes(i)} onChange={()=>setGoals(old=>old.includes(i)?old.filter(x=>x!==i):[...old,i])}/>)}</div><textarea aria-label={c.other} placeholder={c.other} maxLength={1000} disabled={!goals.includes(c.goals.length-1)} value={other} onChange={e=>setOther(e.target.value)}/></>}
     {step===2&&<>{[c.formats,c.methods].map((items,g)=><fieldset key={g}><legend>{c.groups[g]}</legend>{items.map((label,i)=><Option key={i} name={'application-group-'+g} label={label} checked={(g?method:format)===i} onChange={()=>g?setMethod(i):setFormat(i)}/>)}</fieldset>)}</>}
     {step===3&&<><h2 id="application-heading" tabIndex={-1} ref={heading}>{c.success[0]}</h2><p>{c.success[1]}</p><h3>{c.success[2]}</h3></>}
     </div>

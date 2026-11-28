@@ -107,3 +107,8 @@
  .application__intro p{white-space:normal}
 }
 @media(min-width:1650px){.application__intro p{white-space:nowrap}}
+
+/* Seven learning goals: center the group while retaining the shared panel dimensions. */
+.application__content--1{justify-content:center;gap:16px}
+.application__content--1 textarea{width:100%}
+@media(min-width:1250px){.application__content--1{padding:40px 60px}.application__content--1 .application__goals{gap:28px}}
