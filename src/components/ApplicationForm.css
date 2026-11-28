@@ -91,3 +91,19 @@
 
 /* Subtle placeholder text, distinct from entered values. */
 .application__field input::placeholder,.application__content textarea::placeholder{font-family:Inter,sans-serif;font-weight:400!important;color:#EAF4F0;opacity:.4;-webkit-text-fill-color:currentColor}
+
+/* Figma desktop panel dimensions, shared by all three form steps. */
+@media(min-width:1250px){
+ .application:not(.application--success) .application__middle{grid-template-columns:minmax(0,1fr) 718px;min-height:626px}
+ .application:not(.application--success) .application__panel{width:718px;height:626px;min-height:626px;overflow:auto}
+ .application__content--0,.application__content--1,.application__content--2{min-height:626px}
+ .application__content--0{padding:90px 80px 100px;gap:32px}
+ .application__content--1{padding:40px;gap:12px}
+ .application__goals{gap:22px}
+ .application__content--2{padding:68px;gap:48px}
+ .application__content--2 fieldset{gap:32px}
+ .application__content--2 legend{margin-bottom:32px}
+ .application__content--2 fieldset+fieldset{padding-top:48px}
+ .application__intro p{white-space:normal}
+}
+@media(min-width:1650px){.application__intro p{white-space:nowrap}}
