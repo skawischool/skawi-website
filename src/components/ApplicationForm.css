@@ -12,9 +12,9 @@
 .application__middle{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,41.7442%);align-items:center;gap:clamp(24px,4vw,80px);min-height:626px}
 .application__intro{max-width:590px}
 .application__intro h2,.application__content--3 h2{font-size:clamp(36px,3.33333vw,64px);font-weight:500;line-height:1;letter-spacing:.01em;margin:0;white-space:pre-line;outline:none}
-.application__intro p{font-size:18px;line-height:1.4;font-weight:500;margin:42px 0 0;max-width:505px}
+.application__intro p{font-size:16px;line-height:1.4;font-weight:500;margin:42px 0 0;max-width:505px}
 .application__panel{position:absolute;right:0;top:50%;transform:translateY(-50%);width:41.7442%;min-height:626px;background:#023536;color:#EAF4F0;border-radius:20px;overflow:hidden;transition:width .85s cubic-bezier(.22,1,.36,1),right .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1),min-height .85s cubic-bezier(.22,1,.36,1)}
-.application__content{min-height:626px;display:flex;flex-direction:column;justify-content:center;font-size:18px;font-weight:500;line-height:1.4}
+.application__content{min-height:626px;display:flex;flex-direction:column;justify-content:center;font-size:16px;font-weight:500;line-height:1.4}
 .application__content--0{padding:90px clamp(28px,4.1667vw,80px) 100px;gap:32px}
 .application__field{display:flex;flex-direction:column;gap:12px}
 .application__field input,.application__content textarea{width:100%;height:64px;background:transparent;color:#EAF4F0;border:1px solid #EAF4F0B3;border-radius:10px;padding:0 26px;font-size:16px;font-weight:400;outline:none}
@@ -23,7 +23,7 @@
 .application__privacy{font-size:16px;font-weight:400;margin:10px 0 0}
 .application__content--1{padding:40px;justify-content:flex-start;gap:12px}
 .application__goals{display:flex;flex-direction:column;gap:22px}
-.application__option{position:relative;display:flex;align-items:center;gap:12px;cursor:pointer;min-height:25px;font-size:18px;line-height:1.4;font-weight:400}
+.application__option{position:relative;display:flex;align-items:center;gap:12px;cursor:pointer;min-height:25px;font-size:16px;line-height:1.4;font-weight:400}
 .application__option input{position:absolute;opacity:0;width:12px;height:12px;left:0;margin:0}
 .application__circle{position:relative;flex:0 0 12px;width:12px;height:12px}
 .application__circle img{position:absolute;inset:0;width:12px;height:12px}
@@ -41,7 +41,7 @@
 .application__bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:66px}
 .application__counter{text-transform:uppercase;font-size:26px;font-weight:400;letter-spacing:0;white-space:nowrap}
 .application__actions{position:relative;display:flex;gap:32px;align-items:center;justify-content:flex-end}
-.application__action.pricing__cta{margin:0;width:210px;min-height:66px;padding:14px 18px;flex:none;cursor:pointer;background:#023536;color:#EAF4F0;border-color:#023536;font-size:18px;--plan-hover:#EAF4F0;--plan-hover-text:#023536}
+.application__action.pricing__cta{margin:0;width:210px;min-height:66px;padding:14px 18px;flex:none;cursor:pointer;background:#023536;color:#EAF4F0;border-color:#023536;font-size:16px;--plan-hover:#EAF4F0;--plan-hover-text:#023536}
 .application__action.pricing__cta:hover,.application__action.pricing__cta:focus-visible{background:#EAF4F0;color:#023536;border-color:#023536}
 .application__action--back.pricing__cta{background:transparent;color:#023536;--plan-hover:#023536;--plan-hover-text:#EAF4F0}
 .application__action--back.pricing__cta:hover,.application__action--back.pricing__cta:focus-visible{background:#023536;color:#EAF4F0}
@@ -52,7 +52,7 @@
 .application__challenge{position:absolute;bottom:calc(100% + 15px);right:0;z-index:5}
 .application--success .application__panel{width:min(960px,100%);min-height:506px;right:50%;transform:translate(50%,-50%)}
 .application__content--3{min-height:506px;padding:100px 40px;align-items:center;text-align:center;justify-content:space-between;animation-delay:.35s}
-.application__content--3 p{max-width:542px;margin:40px 0;font-size:18px}
+.application__content--3 p{max-width:542px;margin:40px 0;font-size:16px}
 .application__content--3 h3{font-size:32px;line-height:1;letter-spacing:.01em;font-weight:500;margin:0}
 .application__motion--forward{animation:application-content-in .65s cubic-bezier(.22,1,.36,1) both}
 .application__motion--back{animation:application-content-back .65s cubic-bezier(.22,1,.36,1) both}
