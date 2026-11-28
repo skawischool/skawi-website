@@ -112,3 +112,7 @@
 .application__content--1{justify-content:center;gap:16px}
 .application__content--1 textarea{width:100%}
 @media(min-width:1250px){.application__content--1{padding:40px 60px}.application__content--1 .application__goals{gap:28px}}
+
+/* Delivery heading and first option: one 32px gap, not gap plus legend margin. */
+.application__content--2 fieldset+fieldset{display:flex;gap:32px}
+.application__content--2 .application__delivery-heading{margin:0;padding:0}
